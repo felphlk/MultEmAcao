@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Select.gd" type="Script" id=1]
+[ext_resource path="res://Assets/selectCharacterSpiderBlue.png" type="Texture" id=2]
+[ext_resource path="res://Assets/selectCharacterSpiderBlueUnavaliable.png" type="Texture" id=3]
+[ext_resource path="res://Assets/selectCharacterSpiderGreen.png" type="Texture" id=4]
+[ext_resource path="res://Assets/selectCharacterSpiderYellow.png" type="Texture" id=5]
+[ext_resource path="res://Assets/selectCharacterSpiderYellowUnavaliable.png" type="Texture" id=6]
+[ext_resource path="res://Arial.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 7 )
+
+[node name="Select" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1917.0
+margin_bottom = 1084.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Aranha1" type="TextureButton" parent="ColorRect"]
+margin_left = 367.651
+margin_top = 237.509
+margin_right = 1735.65
+margin_bottom = 925.509
+rect_scale = Vector2( 0.25, 0.25 )
+texture_normal = ExtResource( 2 )
+texture_disabled = ExtResource( 3 )
+
+[node name="Aranha2" type="TextureButton" parent="ColorRect"]
+margin_left = 1236.35
+margin_top = 217.988
+margin_right = 2604.35
+margin_bottom = 905.988
+rect_scale = Vector2( 0.25, 0.25 )
+texture_normal = ExtResource( 4 )
+texture_disabled = ExtResource( 3 )
+
+[node name="Aranha3" type="TextureButton" parent="ColorRect"]
+margin_left = 806.88
+margin_top = 702.766
+margin_right = 2174.88
+margin_bottom = 1390.77
+rect_scale = Vector2( 0.25, 0.25 )
+texture_normal = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+
+[node name="Texto" type="Label" parent="."]
+margin_right = 1917.0
+margin_bottom = 180.0
+custom_fonts/font = SubResource( 1 )
+[connection signal="pressed" from="ColorRect/Aranha1" to="." method="_on_Aranha1_pressed"]
+[connection signal="pressed" from="ColorRect/Aranha2" to="." method="_on_Aranha2_pressed"]
+[connection signal="pressed" from="ColorRect/Aranha3" to="." method="_on_Aranha3_pressed"]

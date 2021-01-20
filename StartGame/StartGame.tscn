@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://StartGame/StartGame.gd" type="Script" id=1]
+[ext_resource path="res://MainMenu/MainMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SelectPlayer/Select.tscn" type="PackedScene" id=3]
+[ext_resource path="res://MainGame/Principal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://TelaFimJogo/Fim.tscn" type="PackedScene" id=5]
+
+[node name="StartGame" type="Node"]
+script = ExtResource( 1 )
+
+[node name="MainMenu" parent="." instance=ExtResource( 2 )]
+
+[node name="Select" parent="." instance=ExtResource( 3 )]
+
+[node name="Principal" parent="." instance=ExtResource( 4 )]
+
+[node name="Fim" parent="." instance=ExtResource( 5 )]
+visible = false
+[connection signal="Go" from="MainMenu" to="." method="_on_MainMenu_Go"]
+[connection signal="selected" from="Select" to="." method="_on_Select_selected"]
+[connection signal="fim" from="Principal" to="." method="_on_Principal_fim"]

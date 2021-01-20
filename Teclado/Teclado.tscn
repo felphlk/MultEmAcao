@@ -1,0 +1,118 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Teclado/Teclado.gd" type="Script" id=1]
+[ext_resource path="res://Teclado/Tecla.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/botaoApagar 1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/botaoApagarApertado 1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/botaoPronto 1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/botaoProntoApertado 1.png" type="Texture" id=6]
+[ext_resource path="res://font/FreePixel.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://font/FreePixel.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = SubResource( 2 )
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends TextureButton
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[node name="Teclado" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.44348
+margin_bottom = -6.44348
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+Tecla = ExtResource( 2 )
+
+[node name="tResposta" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Num1" type="Label" parent="."]
+margin_left = 918.0
+margin_top = 732.0
+margin_right = 958.0
+margin_bottom = 763.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Num2" type="Label" parent="."]
+margin_left = 1120.0
+margin_top = 732.0
+margin_right = 1160.0
+margin_bottom = 763.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resposta" type="Label" parent="."]
+margin_left = 1320.0
+margin_top = 732.0
+margin_right = 1360.0
+margin_bottom = 763.0
+custom_fonts/font = SubResource( 4 )
+text = "	"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Clear" type="TextureButton" parent="."]
+margin_left = 1465.0
+margin_top = 920.0
+margin_right = 1973.0
+margin_bottom = 1392.0
+rect_scale = Vector2( 0.25, 0.25 )
+action_mode = 0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+script = SubResource( 5 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Confirmar" type="TextureButton" parent="."]
+margin_left = 1600.0
+margin_top = 920.0
+margin_right = 2110.0
+margin_bottom = 1394.0
+rect_scale = Vector2( 0.25, 0.25 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+[connection signal="pressed" from="Clear" to="." method="_on_Clear_pressed"]
+[connection signal="pressed" from="Confirmar" to="." method="_on_Confirmar_pressed"]

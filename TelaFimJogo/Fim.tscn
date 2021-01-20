@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://font/FreePixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://TelaFimJogo/Fim.gd" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/FliperamaComBotoesIndisponiveis.png-088edb8de7e0b9c4f35173f0bb2855d6.stex"
+
+[sub_resource type="DynamicFont" id=2]
+size = 300
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 1 )
+
+[node name="Fim" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TelaFinal" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+scale = Vector2( 0.25, 0.25 )
+texture = SubResource( 1 )
+
+[node name="Label" type="Label" parent="TelaFinal"]
+anchor_left = -3841.48
+anchor_top = -2153.73
+anchor_right = -3841.48
+anchor_bottom = -2153.73
+margin_left = 2.95022e+07
+margin_top = 9.31158e+06
+margin_right = 2.95046e+07
+margin_bottom = 9.31188e+06
+custom_fonts/font = SubResource( 2 )
+text = "Jogador 1 Venceu"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vencedor" type="Sprite" parent="TelaFinal"]
+position = Vector2( 775, 0 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 40.0
+margin_top = 563.0
+margin_right = 560.0
+margin_bottom = 667.0
+custom_fonts/font = SubResource( 3 )
+text = "Pressione R para reiniciar"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

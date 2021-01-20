@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://MainGame/Principal.gd" type="Script" id=1]
+[ext_resource path="res://Assets/FliperamaComBotoesIndisponiveis.png" type="Texture" id=2]
+[ext_resource path="res://Tabela/Tabela de Resultados.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Teclado/Teclado.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/espacoparaConta.png" type="Texture" id=5]
+[ext_resource path="res://font/FreePixel.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 85
+font_data = ExtResource( 6 )
+
+[node name="Principal" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackGround" type="Sprite" parent="."]
+position = Vector2( 961.26, 536.266 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Player" type="Sprite" parent="."]
+position = Vector2( 255.098, 918.73 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Resultado" parent="." instance=ExtResource( 3 )]
+
+[node name="Teclado" parent="." instance=ExtResource( 4 )]
+margin_left = -5.91663
+margin_top = -0.00012207
+margin_right = -5.91663
+margin_bottom = -0.00012207
+
+[node name="espacoparaConta" type="Sprite" parent="."]
+position = Vector2( 1132.46, 746.483 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 19.0
+margin_top = 250.0
+margin_right = 530.0
+margin_bottom = 531.0
+custom_fonts/font = SubResource( 1 )
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="confirma" from="Teclado" to="." method="_on_Teclado_confirma"]
+[connection signal="timeout" from="LabelTimer" to="." method="_on_LabelTimer_timeout"]
